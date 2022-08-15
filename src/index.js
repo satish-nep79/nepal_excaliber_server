@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use("/api/v1", v1Router);
 app.use('/', (req, res, next) => {
-    res.send("404 NOT FOUND")
+    res.sendFile('pages/404.html', {root:__dirname})
 })
 
 const run = async () => {
