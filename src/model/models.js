@@ -1,0 +1,10 @@
+exports.Product = require("./product");
+exports.Category = require("./category");
+exports.User = require("./user");
+exports.Address = require("./address");
+exports.AccessToekn = require('./accessToekn');
+exports.Order = require('./order');
+exports.OrderItem = require('./orderItem');
+exports.OTP = require('./otp');
+exports.Wishlist = require('./wishlist');
+exports.WishListItem = require('./wishlist-item');
