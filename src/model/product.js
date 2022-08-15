@@ -33,10 +33,11 @@ const Product = sequelizeDb.sequelizeDb.define('product',
         sizes : {
             type: Sequelize.JSON,
             get: function(){
-                if(this.getDataValue('sizes') === null){
-                    return null;
+                try{
+                    return JSON.parse(this.getDataValue('sizes'));
+                }catch{
+                    return this.getDataValue('sizes');
                 }
-                return JSON.parse(this.getDataValue('sizes'));
             },
             set: function(val){
                 return this.setDataValue('sizes', JSON.stringify(val));
@@ -46,7 +47,11 @@ const Product = sequelizeDb.sequelizeDb.define('product',
         colors : {
             type: Sequelize.JSON,
             get: function(){
-                return JSON.parse(this.getDataValue('colors'));
+                try{
+                    return JSON.parse(this.getDataValue('colors'));
+                }catch{
+                    return this.getDataValue('colors');
+                }
             },
             set: function(val){
                 return this.setDataValue('colors', JSON.stringify(val));
