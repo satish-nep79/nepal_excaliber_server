@@ -15,7 +15,7 @@ const createConnection = async () => {
     }
 
     const connection = await sequelize.sequelizeDb
-    .sync()
+    .sync({alter:true})
     .then(result => {
         console.log("Database synced succesfully");
         createSuperAdmin();

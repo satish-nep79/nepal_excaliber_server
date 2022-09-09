@@ -9,6 +9,18 @@ const Address = sequelizeDb.sequelizeDb.define('address',
             allowNull: false,
             primaryKey: true
         },
+        label: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        contactName: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        contact: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
         country: {
             type: Sequelize.STRING,
             allowNull: false

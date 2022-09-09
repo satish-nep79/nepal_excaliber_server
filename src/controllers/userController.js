@@ -302,9 +302,21 @@ const createAddress = async (req, res) => {
         } else if (!body.area) {
             res.send({ status: false, message: "Area field is required" });
             return;
+        } else if (!body.label) {
+            res.send({ status: false, message: "Label field is required" });
+            return;
+        } else if (!body.contactName) {
+            res.send({ status: false, message: "Contack Name field is required" });
+            return;
+        } else if (!body.contact) {
+            res.send({ status: false, message: "Contact field is required" });
+            return;
         }
 
         const newAddress = {
+            label: body.label,
+            contactName: body.contactName,
+            contact: body.contact,
             country: body.country,
             city: body.city,
             zipCode: body.zipCode,
