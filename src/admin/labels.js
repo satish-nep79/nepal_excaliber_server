@@ -13,5 +13,5 @@ exports.label = {
 exports.branding = {
   companyName: 'Nepali Excaliber',
   softwareBrothers: false,
-  logo: 'https://res.cloudinary.com/du7pn6pke/image/upload/v1646877133/pabloartsy/ic_logo_black_astzkr.png'
+  logo: 'https://res.cloudinary.com/du7pn6pke/image/upload/v1662702615/nepal%20excaliber/Group_1_kwobzj.png'
 }
