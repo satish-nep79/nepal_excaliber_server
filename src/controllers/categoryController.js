@@ -1,6 +1,7 @@
 const categoryService = require('../services/categoryService');
 const productService = require("../services/productService");
 const Models = require("../model/models");
+const Sequelize = require('sequelize');
 
 const getAllCategories = async (req, res) => {
     const categories = await categoryService.getAllCategory();
@@ -39,7 +40,38 @@ const getCategory = async (req, res) => {
     }
 }
 
+const searchCategoryProducts = async (req, res) => {
+    try{
+        const categoryId = req.query.id;
+        const searchQuery = req.query.q;
+        const Op = Sequelize.Op;
+
+        const searchCondition = {
+            where: {
+                categoryId: categoryId,
+                [Op.or]:[
+                    {title: {
+                        [Op.like]: `%${searchQuery}%`
+                    }},
+                    {title: {
+                        [Op.like]: `%${searchQuery}%`
+                    }},
+                ]
+            }
+        }
+
+        const products = await productService.getProducts(searchCondition);
+
+        res.send({status: true, data: products});
+
+    }catch(e){
+        console.log(e);
+        res.send({status:false, message: "Unexpected Error"});
+    }
+}
+
 module.exports = {
     getAllCategories,
-    getCategory
+    getCategory,
+    searchCategoryProducts
 }

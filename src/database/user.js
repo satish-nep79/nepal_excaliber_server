@@ -8,7 +8,7 @@ const getAllUsers = async () => {
 }
 
 const getUser = async (user) => {
-    const founduser = await  Models.User.findOne({where: user})
+     founduser = await  Models.User.findOne({where: user})
     return founduser;
 }
 
@@ -28,6 +28,7 @@ const updateUser = async (newUser, userId) => {
     return await Models.User.update(newUser, {where: {Id:userId}})
         .then(newUser => {
             console.log("User updated");
+            console.log(newUser);
             return newUser;
         })
         .catch(error => {

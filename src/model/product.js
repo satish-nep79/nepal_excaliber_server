@@ -31,7 +31,7 @@ const Product = sequelizeDb.sequelizeDb.define('product',
             allowNull: false,
         },
         sizes : {
-            type: Sequelize.JSON,
+            type: Sequelize.STRING,
             get: function(){
                 try{
                     return JSON.parse(this.getDataValue('sizes'));
@@ -45,7 +45,7 @@ const Product = sequelizeDb.sequelizeDb.define('product',
             allowNull: true
         },
         colors : {
-            type: Sequelize.JSON,
+            type: Sequelize.STRING,
             get: function(){
                 try{
                     return JSON.parse(this.getDataValue('colors'));
@@ -54,6 +54,7 @@ const Product = sequelizeDb.sequelizeDb.define('product',
                 }
             },
             set: function(val){
+                console.log(val);
                 return this.setDataValue('colors', JSON.stringify(val));
             },
             allowNull: true

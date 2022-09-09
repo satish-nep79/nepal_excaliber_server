@@ -14,7 +14,7 @@ const createConnection = async () => {
         console.error('Unable to connect to the database:', error);
     }
 
-    return await sequelize.sequelizeDb
+    const connection = await sequelize.sequelizeDb
     .sync()
     .then(result => {
         console.log("Database synced succesfully");
@@ -25,6 +25,9 @@ const createConnection = async () => {
         console.log("Sync failed ", error);
         return false;
     })
+
+    console.log(`connecttion ${connection}`);
+    return sequelize.sequelizeDb;
 }
 
 const createSuperAdmin = async () => {

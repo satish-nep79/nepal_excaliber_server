@@ -6,7 +6,7 @@ const getAllUsers = () => {
 }
 
 const getUser = async (user) => {
-    return User.getUser(user);
+    return await User.getUser(user);
 }
 
 const createUser = async (newUser) => {

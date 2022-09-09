@@ -21,10 +21,10 @@ const authUser = (req, res, next) => {
     if(user === null){
         res.status(401).send({status: false, message:"Unauthorized Access"});
         return;
-    }else if( user.userType = "Admin"){
+    }else {
+        
         next();
     }
-
 }
 
 module.exports = {

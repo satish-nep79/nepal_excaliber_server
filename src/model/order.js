@@ -25,7 +25,7 @@ const Order = sequelizeDb.sequelizeDb.define('order',
             type: Sequelize.DATE,
             allowNull: true
         },
-        paymentOption: {
+        paymentToken: {
             type: Sequelize.STRING,
             allowNull: false,
             defaultValue: "Cash on delovery"

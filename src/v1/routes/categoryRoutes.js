@@ -8,4 +8,6 @@ router.get("/", TokenHelper.authenticateToekn , auth.authUser, categoryCOntrolle
 
 router.get("/products/", TokenHelper.authenticateToekn, auth.authUser, categoryCOntroller.getCategory);
 
+router.get("/search-products/", TokenHelper.authenticateToekn, auth.authUser, categoryCOntroller.searchCategoryProducts);
+
 module.exports = router;

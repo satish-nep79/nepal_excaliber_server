@@ -1,3 +1,4 @@
+const { condition } = require("sequelize");
 const sequelize = require("../database/db");
 const Models = require("../model/models");
 

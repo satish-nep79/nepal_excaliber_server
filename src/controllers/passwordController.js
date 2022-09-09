@@ -2,7 +2,6 @@ const userService = require("../services/userSerice");
 const otpService = require("../services/otpService");
 const passwordHelper = require("../utils/passwordHelper");
 const otpGenerator = require('otp-generator')
-const emailjs = require('@emailjs/browser');
 
 const forgetPassword = async (req, res) => {
     const { body } = req;

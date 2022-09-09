@@ -13,11 +13,23 @@ const Address = sequelizeDb.sequelizeDb.define('address',
             type: Sequelize.STRING,
             allowNull: false
         },
+        provision: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        district: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
         city: {
             type: Sequelize.STRING,
             allowNull: false
         },
         street: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        area: {
             type: Sequelize.STRING,
             allowNull: false
         },
