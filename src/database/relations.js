@@ -20,6 +20,12 @@ const defineRelations = () =>{
     //M-M for Order and Product
     Models.Order.belongsToMany(Models.Product, {through: Models.OrderItem});
     Models.Product.belongsToMany(Models.Order, {through: Models.OrderItem});
+
+    Models.Order.hasMany(Models.OrderItem);
+    Models.OrderItem.belongsTo(Models.Order);
+
+    Models.Product.hasMany(Models.OrderItem);
+    Models.OrderItem.belongsTo(Models.Product);
     
     //1-1 for Order and Address
     Models.Order.belongsTo(Models.Address);

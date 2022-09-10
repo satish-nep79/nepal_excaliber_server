@@ -63,9 +63,12 @@ const getOrders = async (req, res) => {
     console.log(user.id);
     try{
         
-        const fetchOrder = await orderService.getOrders({userId: user.id})
+        const fetchOrder = await orderService.getOrders({
+            "userId": user.id
+        })
         res.send({status: true, data:fetchOrder})
     }catch(error){
+        console.log(error);
         res.send({status: false, message:"Unexpected Error"})
     }
 }

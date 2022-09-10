@@ -3,14 +3,22 @@ const sequelize = require("../database/db");
 const Models = require("../model/models");
 
 const getOrders = async (orders) => {
-    const foundOrders = await Models.Order.findAll({ where: orders,include: [{ model: Models.Product,},] });
+    const foundOrders = await Models.OrderItem.findAll({
+        include: [
+            { model: Models.Product, },
+            { model: Models.Order, as: "order", where: orders, }
+        ],
+        order: [['createdAt', 'DESC']]
+    });
     return foundOrders;
 }
 
 const getOrder = async (order) => {
-    const foundOrder = await Models.Order.findOne({ where: order, 
-        include: [{ model: Models.Product,},] })
-        return foundOrder;
+    const foundOrder = await Models.Order.findOne({
+        where: order,
+        include: [{ model: Models.Product, },]
+    })
+    return foundOrder;
 }
 
 const createOrder = async (newOrder) => {
